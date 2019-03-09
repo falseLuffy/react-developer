@@ -7,7 +7,6 @@ import data from '../pages/data/data'
 
 export default () => (
   <Switch>
-     <Route exact path="/" component={App}></Route>
-     <Route exact path="/data" component={data}></Route>
+     <Route exact path="/" component={data}></Route>
   </Switch>
 )

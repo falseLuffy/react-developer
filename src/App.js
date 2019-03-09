@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import logo from './logo.svg';
-import './App.css';
+import Router from './router/index'
 
-import { Button } from 'antd';
+import Container from './components/layout'
 
 class App extends Component {
    constructor(props) {
+      debugger
       super(props);
       this.state = {}
    }
@@ -14,26 +14,9 @@ class App extends Component {
    render() {
       return (
         <div className="App">
-           <header className="App-header">
-              <img src={logo} className="App-logo" alt="logo"/>
-              <p>
-                 Edit <code>src/App.js</code> and save to reload.
-              </p>
-              <a
-                className="App-link"
-                href="https://reactjs.org"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                 Learn React
-              </a>
-              <p>{JSON.stringify(this.props.cart)}</p>
-              <Button onClick = {this.props.plus}>点一下</Button>
-              {JSON.stringify(this.props.demo)}
-
-              <Button onClick = {this.props.plus2}>点一下2</Button>
-              <Button type="primary">你好 antd</Button>
-           </header>
+           <Container>
+              <Router></Router>
+           </Container>
         </div>
       );
    }
@@ -50,7 +33,7 @@ const mapStateToProps = (state) => {
       cart: state.cart,
       demo:state.a
    }
-}
+};
 
 const mapDispatchToProps = (dispatch) => {
    return {
@@ -66,7 +49,7 @@ const mapDispatchToProps = (dispatch) => {
          });
       }
    };
-}
+};
 
 App = connect(mapStateToProps,mapDispatchToProps)(App);
 export default App;

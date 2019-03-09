@@ -6,10 +6,13 @@ import { Provider } from 'react-redux'
 import { BrowserRouter } from 'react-router-dom'
 
 import 'common/style/resert.css';
-// import App from './App';
+import App from './App';
 import * as serviceWorker from './serviceWorker';
 import reducers from './store/reducer'
-import Router from './router/index'
+// import Router from './router/index'
+
+import './common/style/base.less'
+import './common/style/antd-reset/index.less'
 
 const store = createStore(reducers, compose(
   applyMiddleware(thunk),
@@ -19,8 +22,9 @@ const store = createStore(reducers, compose(
 ReactDOM.render(
   <Provider store={store}>
      <BrowserRouter>
-        <Router>
-        </Router>
+       {/* <Router>
+        </Router>*/}
+        <App></App>
      </BrowserRouter>
   </Provider>
   , document.getElementById('root'));
