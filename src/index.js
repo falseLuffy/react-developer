@@ -9,7 +9,6 @@ import 'common/style/resert.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import reducers from './store/reducer'
-// import Router from './router/index'
 
 import './common/style/base.less'
 import './common/style/antd-reset/index.less'
@@ -22,8 +21,6 @@ const store = createStore(reducers, compose(
 ReactDOM.render(
   <Provider store={store}>
      <BrowserRouter>
-       {/* <Router>
-        </Router>*/}
         <App></App>
      </BrowserRouter>
   </Provider>

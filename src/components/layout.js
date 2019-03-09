@@ -9,14 +9,20 @@ class Container extends Component{
       super(props)
       this.state = {}
    }
+
    componentDidMount(){
       this.adaptScreenHeight();
+      window.addEventListener('resize',this.adaptScreenHeight)
+   }
+   componentWillUnmount(){
+      window.removeEventListener('resize',this.ad)
    }
 
    adaptScreenHeight(){
       let height = document.documentElement.clientHeight;
       document.getElementById('contentWrap').style.height = height - 54 + 'px'
    }
+
    render(){
       return (
         <Layout>
@@ -33,7 +39,9 @@ class Container extends Component{
                     </Menu.Item>
                     <Menu.Item key="2">
                        <Icon type="video-camera" ></Icon>
-                       <span className="nav-text">nav 2</span>
+                       <span className="nav-text">
+                          <Link to={'/'}>nav 2</Link>
+                       </span>
                     </Menu.Item>
                     <Menu.Item key="3">
                        <Icon type="upload" ></Icon>
@@ -68,7 +76,6 @@ class Container extends Component{
         </Layout>
       )
    }
-
 };
 
 export default Container;

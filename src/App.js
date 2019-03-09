@@ -1,14 +1,14 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import {withRouter} from 'react-router-dom'
 import Router from './router/index'
 
 import Container from './components/layout'
 
 class App extends Component {
    constructor(props) {
-      debugger
       super(props);
-      this.state = {}
+      this.state = {};
    }
 
    render() {
@@ -51,5 +51,5 @@ const mapDispatchToProps = (dispatch) => {
    };
 };
 
-App = connect(mapStateToProps,mapDispatchToProps)(App);
+App =withRouter(connect(mapStateToProps,mapDispatchToProps)(App));
 export default App;
